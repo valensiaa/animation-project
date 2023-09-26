@@ -1,4 +1,7 @@
 @import "bootstrap";
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
 
 // Common parts
 @import "common/reset";
@@ -8,7 +11,9 @@
 @import "common/helpers";
 
 // Layout blocks prefixed with l-
+@import "layout/header";
+@import "layout/footer";
 
 // Component blocks prefixed with c-
-@import "components/header";
-@import "components/footer";
+@import "components/hero";
+@import "components/slider";

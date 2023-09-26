@@ -1,0 +1,36 @@
+.c-slider {
+    height: 100%;
+    background-color: $colorSand;
+    position: relative;
+
+    &__slide {
+        max-height: 100vh;
+    }
+}
+
+.swiper {
+    height: 100%;
+    width: 100%;
+}
+
+.swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets {
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.swiper-vertical > .swiper-button {
+    &-prev {
+        transform: rotate(270deg);
+        position: absolute;
+        left: calc(100% - 70px);
+        top: calc(100% - 40px);
+    }
+
+    &-next {
+        transform: rotate(270deg);
+        position: absolute;
+        left: calc(100% - 70px);
+        top: calc(100% - 95px);
+    }
+}
