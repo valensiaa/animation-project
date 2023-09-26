@@ -1,0 +1,14 @@
+@import "bootstrap";
+
+// Common parts
+@import "common/reset";
+@import "common/variables";
+@import "common/mixins";
+@import "common/global";
+@import "common/helpers";
+
+// Layout blocks prefixed with l-
+
+// Component blocks prefixed with c-
+@import "components/header";
+@import "components/footer";
