@@ -22,8 +22,12 @@ __webpack_require__.r(__webpack_exports__);
 var swiper = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"]('.js-slider', {
   modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_3__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_3__.Navigation],
   direction: 'vertical',
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
   slidesPerView: 1,
-  spaceBetween: 30,
+  spaceBetween: 0,
   mousewheel: true,
   parallax: true,
   pagination: {

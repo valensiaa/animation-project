@@ -4,3 +4,25 @@
     line-height: 1.2;
     margin-bottom: 0;
 }
+
+@mixin h2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+@mixin h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+
+@mixin h4 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
