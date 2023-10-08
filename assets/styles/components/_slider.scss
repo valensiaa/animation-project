@@ -1,35 +1,54 @@
-.c-slider {
+.l-slider {
     height: 100%;
     background-color: $colorPrimary;
     position: relative;
+    overflow: hidden;
+
+    &__wrapper {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    &__left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transition: transform 0.3s ease-in-out;
+    }
+    &__right {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transition: transform 0.3s ease-in-out;
+    }
 
     &__slide {
-        max-height: 100vh;
+        width: 100%;
+        height: 100%;
         display: flex;
-
-        &-left {
-            flex: 0 0 50%;
-        }
-
-        &-right {
-            flex: 0 0 50%;
-            padding: 30px 70px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        &-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
 
         &-pagination {
             position: relative;
             width: 32px;
             height: 42px;
             margin-bottom: 20px;
+        }
+
+        &-content {
+            padding: 20px 30px;
+        }
+
+        &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         &-title {
@@ -113,122 +132,75 @@
 
 
             &:hover {
-                & .c-slider__slide-button-bottom {
+                & .l-slider__slide-button-bottom {
                      left: 0;
                      top: 0;
                      background-color: $colorPrimary;
                 } 
  
-                & .c-slider__slide-button-label {
+                & .l-slider__slide-button-label {
                      color: $colorSand;
                 }
 
-                & .c-slider__slide-button-border-left, & .c-slider__slide-button-border-right {
+                & .l-slider__slide-button-border-left, & .l-slider__slide-button-border-right {
                         height: calc(100% + 2px);
                 }
 
-                & .c-slider__slide-button-border-top, & .c-slider__slide-button-border-bottom {
+                & .l-slider__slide-button-border-top, & .l-slider__slide-button-border-bottom {
                     width: calc(100% + 2px);
                 }
              }
         }
+
     }
 
-
-    & .pagination {
-        font-size: 16px;
-        color: $colorSecondary;
-
-        &__number {
-            position: absolute;
-            left: 5px;
-        }
-
-        &__divider {
-            position: absolute;
-            background-color: $colorSand;
-            width: 1px;
-            height: 100%;
-            transform: rotate(45deg);
-            left: 50%;
-        }
-
-        &__summary {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-        }
-    }
-}
-
-.swiper {
-    height: 100%;
-    width: 100%;
-
-    &-slide {
-
-        &-active {
-            & .c-slider__slide-right {
-                    opacity: 1;
-                    transform: translateY(0);
-            }
-        }
-    
-        &-next {
-            & .c-slider__slide-right {
-                    opacity: 0;
-                    transform: translateY(-100%);
-                    transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
-            }
-        }
-    }
-}
-
-.swiper-pagination-vertical.swiper-pagination-bullets {
-    right: calc(50% - 30px);
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    & .swiper-pagination-bullet {
-        width: 30px;
-        height: 30px;
-        opacity: 1;
-        background-color: $colorTransparent;
-        margin-bottom: 20px;
-        border: 2px solid $colorSand;
-
-        &-active {
-            position: relative;
-
-            &::before {
-                position: absolute;
-                content: '';
-                width: 20px;
-                height: 20px;
-                background-color: $colorSand;
-                left: 3px;
-                top: 3px;
-                border-radius: 50%;
-                transition: all 0.3s ease-in-out;
-            }
-        }
-    }
-}
-
-.swiper-vertical > .swiper-button {
-    &-prev {
-        transform: rotate(270deg);
+    &__action-buttons {
         position: absolute;
-        left: calc(100% - 70px);
-        top: calc(100% - 40px);
-        color: $colorSand;
-    }
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
 
-    &-next {
-        transform: rotate(270deg);
-        position: absolute;
-        left: calc(100% - 70px);
-        top: calc(100% - 95px);
-        color: $colorSand;
+        & button {
+            background: $colorTransparent;
+        }
+
+        & i {
+            font-size: 40px;
+            color: $colorSand;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: $colorSecondary;
+            }
+        }
     }
 }
+
+.pagination {
+    font-size: 16px;
+    color: $colorSecondary;
+
+    &__number {
+        position: absolute;
+        left: 5px;
+    }
+
+    &__divider {
+        position: absolute;
+        background-color: $colorSand;
+        width: 1px;
+        height: 100%;
+        transform: rotate(45deg);
+        left: 50%;
+    }
+
+    &__summary {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+

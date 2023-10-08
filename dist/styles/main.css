@@ -10931,6 +10931,15 @@ html {
   position: relative;
   padding: 50px 0;
 }
+.l-footer__title {
+  color: #f5f5f5;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 .c-hero {
   background-color: #101010;
@@ -10986,55 +10995,73 @@ html {
   }
 }
 
-.c-slider {
+.l-slider {
   height: 100%;
   background-color: #f5f5f5;
   position: relative;
+  overflow: hidden;
 }
-.c-slider__slide {
-  max-height: 100vh;
-  display: flex;
+.l-slider__wrapper {
+  height: 100vh;
+  width: 100vw;
 }
-.c-slider__slide-left {
-  flex: 0 0 50%;
+.l-slider__left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: transform 0.3s ease-in-out;
 }
-.c-slider__slide-right {
-  flex: 0 0 50%;
-  padding: 30px 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.l-slider__right {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: transform 0.3s ease-in-out;
 }
-.c-slider__slide-img {
+.l-slider__slide {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
-.c-slider__slide-pagination {
+.l-slider__slide-pagination {
   position: relative;
   width: 32px;
   height: 42px;
   margin-bottom: 20px;
 }
-.c-slider__slide-title {
+.l-slider__slide-content {
+  padding: 20px 30px;
+}
+.l-slider__slide-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.l-slider__slide-title {
   font-size: 40px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0;
 }
-.c-slider__slide-text {
+.l-slider__slide-text {
   font-size: 16px;
   margin: 20px 0;
   line-height: 1.4;
 }
-.c-slider__slide-button {
+.l-slider__slide-button {
   display: inline-flex;
   text-decoration: none;
   position: relative;
   margin-top: 42px;
 }
-.c-slider__slide-button-bottom {
+.l-slider__slide-button-bottom {
   position: absolute;
   left: 7px;
   top: 7px;
@@ -11043,7 +11070,7 @@ html {
   background-color: #e6c996;
   transition: all 0.3s ease-in-out;
 }
-.c-slider__slide-button-top {
+.l-slider__slide-button-top {
   position: absolute;
   left: 0;
   top: 0;
@@ -11052,7 +11079,7 @@ html {
   padding: 24px 34px 22px 34px;
   border: 2px solid #101010;
 }
-.c-slider__slide-button-label {
+.l-slider__slide-button-label {
   font-size: 16px;
   color: #101010;
   line-height: 0;
@@ -11060,58 +11087,78 @@ html {
   text-align: center;
   transition: all 0.3s ease-in-out;
 }
-.c-slider__slide-button-border {
+.l-slider__slide-button-border {
   position: absolute;
   background-color: #e6c996;
   transition: all 0.3s ease-in-out;
 }
-.c-slider__slide-button-border-top {
+.l-slider__slide-button-border-top {
   left: -2px;
   top: -2px;
   width: 0;
   height: 2px;
 }
-.c-slider__slide-button-border-bottom {
+.l-slider__slide-button-border-bottom {
   right: -2px;
   bottom: -2px;
   width: 0;
   height: 2px;
 }
-.c-slider__slide-button-border-left {
+.l-slider__slide-button-border-left {
   left: -2px;
   bottom: -2px;
   width: 2px;
   height: 0;
 }
-.c-slider__slide-button-border-right {
+.l-slider__slide-button-border-right {
   right: -2px;
   top: -2px;
   width: 2px;
   height: 0;
 }
-.c-slider__slide-button:hover .c-slider__slide-button-bottom {
+.l-slider__slide-button:hover .l-slider__slide-button-bottom {
   left: 0;
   top: 0;
   background-color: #f5f5f5;
 }
-.c-slider__slide-button:hover .c-slider__slide-button-label {
+.l-slider__slide-button:hover .l-slider__slide-button-label {
   color: #e6c996;
 }
-.c-slider__slide-button:hover .c-slider__slide-button-border-left, .c-slider__slide-button:hover .c-slider__slide-button-border-right {
+.l-slider__slide-button:hover .l-slider__slide-button-border-left, .l-slider__slide-button:hover .l-slider__slide-button-border-right {
   height: calc(100% + 2px);
 }
-.c-slider__slide-button:hover .c-slider__slide-button-border-top, .c-slider__slide-button:hover .c-slider__slide-button-border-bottom {
+.l-slider__slide-button:hover .l-slider__slide-button-border-top, .l-slider__slide-button:hover .l-slider__slide-button-border-bottom {
   width: calc(100% + 2px);
 }
-.c-slider .pagination {
+.l-slider__action-buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.l-slider__action-buttons button {
+  background: transparent;
+}
+.l-slider__action-buttons i {
+  font-size: 40px;
+  color: #e6c996;
+  transition: all 0.3s ease-in-out;
+}
+.l-slider__action-buttons i:hover {
+  color: #101010;
+}
+
+.pagination {
   font-size: 16px;
   color: #101010;
 }
-.c-slider .pagination__number {
+.pagination__number {
   position: absolute;
   left: 5px;
 }
-.c-slider .pagination__divider {
+.pagination__divider {
   position: absolute;
   background-color: #e6c996;
   width: 1px;
@@ -11119,67 +11166,10 @@ html {
   transform: rotate(45deg);
   left: 50%;
 }
-.c-slider .pagination__summary {
+.pagination__summary {
   position: absolute;
   bottom: 0;
   right: 0;
-}
-
-.swiper {
-  height: 100%;
-  width: 100%;
-}
-.swiper-slide-active .c-slider__slide-right {
-  opacity: 1;
-  transform: translateY(0);
-}
-.swiper-slide-next .c-slider__slide-right {
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.swiper-pagination-vertical.swiper-pagination-bullets {
-  right: calc(50% - 30px);
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet {
-  width: 30px;
-  height: 30px;
-  opacity: 1;
-  background-color: transparent;
-  margin-bottom: 20px;
-  border: 2px solid #e6c996;
-}
-.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet-active {
-  position: relative;
-}
-.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet-active::before {
-  position: absolute;
-  content: "";
-  width: 20px;
-  height: 20px;
-  background-color: #e6c996;
-  left: 3px;
-  top: 3px;
-  border-radius: 50%;
-  transition: all 0.3s ease-in-out;
-}
-
-.swiper-vertical > .swiper-button-prev {
-  transform: rotate(270deg);
-  position: absolute;
-  left: calc(100% - 70px);
-  top: calc(100% - 40px);
-  color: #e6c996;
-}
-.swiper-vertical > .swiper-button-next {
-  transform: rotate(270deg);
-  position: absolute;
-  left: calc(100% - 70px);
-  top: calc(100% - 95px);
-  color: #e6c996;
 }
 
 .c-card {
