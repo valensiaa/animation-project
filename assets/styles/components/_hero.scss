@@ -1,43 +1,93 @@
 .c-hero {
-    background-color: $colorSecondary;
-    padding: 80px 0;
-    min-height: 100vh;
+    background-color: $colorWhite;
     position: relative;
+    height: 100vh;
 
-    &__wrapper {
-        position: fixed;
-        // z-index: -1;
-        width: 100vw;
-        height: 100vh
+    &__media {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        & figure {
+            background-size: contain;
+            position: inherit;
+            margin-bottom: 0;
+        }
+
+        &-top {
+            height: 100px;
+            width: 100vw;
+            top: 37%;
+        }
+
+        &-middle {
+            height: 60%;
+            width: 60%;
+            background-repeat: no-repeat;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 1;
+
+            animation: animate-map linear forwards;
+            animation-timeline: scroll();
+        }
+
+        @keyframes animate-map {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            100% { transform: translate(-50%, -100%) scale(1.5); }
+            
+        }
+    }
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
     }
 
     &__title {
-        @include h1;
-        color: $colorPrimary;
+        color: $colorSecondary;
         text-transform: uppercase;
-    }
+        padding: 16px 32px;
+        background-color: $colorPrimary;
+        position: absolute;
+        font-weight: 600;
+        font-size: $titleHero;
 
-    &__icon-up {
-        position: fixed;
-        color: $colorPrimary;
-        font-size: 64px;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        cursor: pointer;
+        animation: animate-in linear forwards,
+		animate-out linear forwards;
+        animation-timeline: view();
+        animation-range: entry, exit;
 
-        animation-name: downAnimation;
-        animation-duration: 1s;
-        animation-direction: alternate;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-    }
-
-    @keyframes downAnimation {
-        0% {
-            bottom: 10px;
+        &-1 {
+            top: -155px;
+            left: -135px;
+            font-size: $titleHerolg;
         }
-        100% {
-            bottom: 20px;
+
+        &-2 {
+            top: -70px;
+            left: -55px;
+        }
+
+        &-3 {
+            top: 7px;
+            left: 15px;
+            font-size: $titleHerolg;
+        }
+
+        @keyframes animate-in {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(0); }
+        }
+        
+        @keyframes animate-out {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
         }
     }
 }

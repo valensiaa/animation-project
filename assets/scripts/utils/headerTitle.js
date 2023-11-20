@@ -65,8 +65,7 @@ const resolver = {
    * Source: http://theportalwiki.com/wiki/GLaDOS_voice_lines#Chapter_9:_The_Part_Where_He_Kills_You
    */
   const strings = [
-    'On 24 February 2022, Russia invaded Ukraine in an escalation of the Russo-Ukrainian War which began in 2014.',
-    'The invasion has been described as the biggest attack on a European country since the Second World War....'
+    'Stay with Ukraine'
   ];
    
   
@@ -92,8 +91,10 @@ const resolver = {
     setTimeout(() => {
       counter ++;
       
-      if (counter >= strings.length) {
+      if (counter > strings.length) {
         counter = 0;
+      } else if(counter === strings.length){
+        return;
       }
       
       let nextOptions = Object.assign({}, options, {resolveString: strings[counter]});

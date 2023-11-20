@@ -10924,6 +10924,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.main {
+  background-color: #ffffff;
+}
+
 .l-footer {
   background-color: #101010;
   color: #f5f5f5;
@@ -10939,65 +10943,153 @@ html {
   margin-bottom: 0;
   text-align: center;
   margin-bottom: 20px;
+  background: linear-gradient(90deg, #f5f5f5, transparent);
+  background-size: 500%;
+  background-repeat: no-repeat;
+  -webkit-animation: reveal linear both;
+          animation: reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 50% cover 20%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+@-webkit-keyframes reveal {
+  from {
+    background-position-x: 500%;
+  }
+  to {
+    background-position-x: 0%;
+  }
+}
+@keyframes reveal {
+  from {
+    background-position-x: 500%;
+  }
+  to {
+    background-position-x: 0%;
+  }
 }
 
 .c-hero {
-  background-color: #101010;
-  padding: 80px 0;
-  min-height: 100vh;
+  background-color: #ffffff;
   position: relative;
-}
-.c-hero__wrapper {
-  position: fixed;
-  width: 100vw;
   height: 100vh;
 }
-.c-hero__title {
-  font-size: 72px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0;
-  color: #f5f5f5;
-  text-transform: uppercase;
+.c-hero__media {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
-.c-hero__icon-up {
-  position: fixed;
-  color: #f5f5f5;
-  font-size: 64px;
+.c-hero__media figure {
+  background-size: contain;
+  position: inherit;
+  margin-bottom: 0;
+}
+.c-hero__media-top {
+  height: 100px;
+  width: 100vw;
+  top: 37%;
+}
+.c-hero__media-middle {
+  height: 60%;
+  width: 60%;
+  background-repeat: no-repeat;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 1;
+  -webkit-animation: animate-map linear forwards;
+          animation: animate-map linear forwards;
+  animation-timeline: scroll();
+}
+@-webkit-keyframes animate-map {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -100%) scale(1.5);
+  }
+}
+@keyframes animate-map {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -100%) scale(1.5);
+  }
+}
+.c-hero__content {
+  position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  cursor: pointer;
-  -webkit-animation-name: downAnimation;
-          animation-name: downAnimation;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
+  z-index: 2;
 }
-@-webkit-keyframes downAnimation {
+.c-hero__title {
+  color: #101010;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  background-color: #f5f5f5;
+  position: absolute;
+  font-weight: 600;
+  font-size: 24px;
+  -webkit-animation: animate-in linear forwards, animate-out linear forwards;
+          animation: animate-in linear forwards, animate-out linear forwards;
+  animation-timeline: view();
+  animation-range: entry, exit;
+}
+.c-hero__title-1 {
+  top: -155px;
+  left: -135px;
+  font-size: 32px;
+}
+.c-hero__title-2 {
+  top: -70px;
+  left: -55px;
+}
+.c-hero__title-3 {
+  top: 7px;
+  left: 15px;
+  font-size: 32px;
+}
+@-webkit-keyframes animate-in {
   0% {
-    bottom: 10px;
+    transform: translateY(100%);
   }
   100% {
-    bottom: 20px;
+    transform: translateY(0);
   }
 }
-@keyframes downAnimation {
+@keyframes animate-in {
   0% {
-    bottom: 10px;
+    transform: translateY(100%);
   }
   100% {
-    bottom: 20px;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes animate-out {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+@keyframes animate-out {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
   }
 }
 
 .l-slider {
   height: 100%;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   position: relative;
   overflow: hidden;
 }

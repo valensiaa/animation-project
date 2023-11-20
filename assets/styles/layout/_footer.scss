@@ -10,5 +10,22 @@
         @include h2;
         text-align: center;
         margin-bottom: 20px;
+        background: linear-gradient(90deg, $colorPrimary, $colorTransparent);
+        background-size: 500%;
+        background-repeat: no-repeat;
+        animation: reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 50% cover 20%;
+        background-clip: text;
+        color: $colorTransparent;
+    }
+
+    @keyframes reveal {
+        from {
+            background-position-x: 500%;
+        }
+        to {
+            background-position-x: 0%;
+        }
     }
 }

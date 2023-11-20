@@ -11,9 +11,6 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_headerTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/headerTitle */ "./assets/scripts/utils/headerTitle.js");
 /* harmony import */ var _utils_headerTitle__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_utils_headerTitle__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_scrollTo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/scrollTo */ "./assets/scripts/utils/scrollTo.js");
-/* harmony import */ var _utils_scrollTo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_scrollTo__WEBPACK_IMPORTED_MODULE_1__);
-
  // import Swiper from 'swiper';
 // import { Pagination, Navigation } from 'swiper/modules';
 // const swiper = new Swiper('.js-slider', {
@@ -158,7 +155,7 @@ var resolver = {
  * Source: http://theportalwiki.com/wiki/GLaDOS_voice_lines#Chapter_9:_The_Part_Where_He_Kills_You
  */
 
-var strings = ['On 24 February 2022, Russia invaded Ukraine in an escalation of the Russo-Ukrainian War which began in 2014.', 'The invasion has been described as the biggest attack on a European country since the Second World War....'];
+var strings = ['Stay with Ukraine'];
 var counter = 0;
 var options = {
   // Initial position
@@ -179,8 +176,10 @@ function callback() {
   setTimeout(function () {
     counter++;
 
-    if (counter >= strings.length) {
+    if (counter > strings.length) {
       counter = 0;
+    } else if (counter === strings.length) {
+      return;
     }
 
     var nextOptions = Object.assign({}, options, {
@@ -191,24 +190,6 @@ function callback() {
 }
 
 resolver.resolve(options, callback);
-
-/***/ }),
-
-/***/ "./assets/scripts/utils/scrollTo.js":
-/*!******************************************!*\
-  !*** ./assets/scripts/utils/scrollTo.js ***!
-  \******************************************/
-/***/ (() => {
-
-var downEl = document.querySelector('.c-hero__icon-up');
-downEl.addEventListener('click', function () {
-  var el = document.querySelector('.c-hero');
-  var elOffset = el.getBoundingClientRect().bottom + window.scrollY;
-  scrollTo({
-    top: elOffset,
-    behavior: 'smooth'
-  });
-});
 
 /***/ }),
 

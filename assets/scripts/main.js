@@ -1,5 +1,4 @@
 import "./utils/headerTitle";
-import "./utils/scrollTo";
 // import Swiper from 'swiper';
 // import { Pagination, Navigation } from 'swiper/modules';
 
