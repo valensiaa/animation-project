@@ -3,6 +3,17 @@
     position: relative;
     height: 100vh;
 
+    &::before {
+        content: '';
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 57%, rgb(255, 255, 255) 90%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
     &__media {
         position: absolute;
         top: 0;
@@ -10,43 +21,23 @@
         height: 100%;
 
         & figure {
-            background-size: contain;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             position: inherit;
             margin-bottom: 0;
-        }
-
-        &-top {
-            height: 100px;
-            width: 100vw;
-            top: 37%;
-        }
-
-        &-middle {
-            height: 60%;
-            width: 60%;
-            background-repeat: no-repeat;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            z-index: 1;
-
-            animation: animate-map linear forwards;
-            animation-timeline: scroll();
-        }
-
-        @keyframes animate-map {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            100% { transform: translate(-50%, -100%) scale(1.5); }
-            
+            width: 100%;
+            height: 100%;
         }
     }
 
     &__content {
         position: absolute;
-        top: 50%;
+        top: 100%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 2;
+        width: 80%;
     }
 
     &__title {
@@ -58,36 +49,98 @@
         font-weight: 600;
         font-size: $titleHero;
 
-        animation: animate-in linear forwards,
-		animate-out linear forwards;
-        animation-timeline: view();
-        animation-range: entry, exit;
-
         &-1 {
-            top: -155px;
-            left: -135px;
+            top: -170px;
+            left: 5%;
             font-size: $titleHerolg;
+
+            &.is-loaded {
+                transition: all 0.5s;
+                transition-duration: 0.5s;
+                animation-timing-function: (0.1, -0.6, 0.2, 0);
+                top: -270px; 
+            }
+
+            &.top-animation {
+                top: -470px;
+                transition: all 0.5s;
+                animation-timing-function: (0.1, -0.6, 0.2, 0);
+                transition-duration: 0.5s;
+            }
         }
 
         &-2 {
             top: -70px;
-            left: -55px;
+            left: 40%;
+
+            &.is-loaded {
+                top: -170px;
+                transition: all 0.5s;
+                animation-timing-function: (0.1, -0.6, 0.2, 0);
+                transition-duration: 0.3s;
+            }
+            
+            &.top-animation {
+                top: -370px;
+                transition: all 0.7s;
+                animation-timing-function: (0.1, -0.6, 0.2, 0);
+                transition-duration: 0.7s;
+            }
         }
 
         &-3 {
-            top: 7px;
-            left: 15px;
+            top: -10px;
+            left: 62%;
             font-size: $titleHerolg;
+
+            &.is-loaded {
+                top: -110px;
+                transition: all 0.5s;
+                animation-timing-function: (0.1, -0.6, 0.2, 0);
+                transition-duration: 0.7s;
+            }
+
+            &.top-animation {
+                top: -310px;
+                transition: all 0.5s;
+                animation-timing-function: (0.1, -0.6, 0.2, 0);
+                transition-duration: 0.7s;
+            }
+        }
+    }
+
+    &__menu {
+        background-color: $colorPrimary;
+        position: fixed;
+        z-index: 3;
+        padding: 15px 5px;
+        width: 100%;
+        transform: translateY(-100%);
+
+        &.is-loaded {
+            transition: transform 0.5s;
+            animation-timing-function: (0.1, -0.6, 0.2, 0);
+            transition-duration: 0.5s;
+            transition-delay: 0.4s;
+            transform: translateY(0);
         }
 
-        @keyframes animate-in {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(0); }
+        &-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        
-        @keyframes animate-out {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
+
+        &-link {
+            padding: 8px 32px;
+            font-size: $fontSizeMenuList;
+            color: $colorSecondary;
+            transition: all 0.3s;
+            animation-timing-function: (0.1, -0.6, 0.2, 0);
+
+            &:hover {
+                color: $colorSand;
+            }
         }
     }
 }

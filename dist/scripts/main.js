@@ -9,30 +9,11 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_headerTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/headerTitle */ "./assets/scripts/utils/headerTitle.js");
-/* harmony import */ var _utils_headerTitle__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_utils_headerTitle__WEBPACK_IMPORTED_MODULE_0__);
- // import Swiper from 'swiper';
-// import { Pagination, Navigation } from 'swiper/modules';
-// const swiper = new Swiper('.js-slider', {
-//     modules: [Pagination, Navigation],
-//     direction: 'vertical',
-//     effect: 'fade',
-//     fadeEffect: {
-//         crossFade: true
-//       },
-//     slidesPerView: 1,
-//     spaceBetween: 0,
-//     mousewheel: true,
-//     parallax: true,
-//     pagination: {
-//         el: '.swiper-pagination',
-//         clickable: true,
-//     },
-//     navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//     },
-// })
+/* harmony import */ var _utils_heroAnimation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/heroAnimation */ "./assets/scripts/utils/heroAnimation.js");
+/* harmony import */ var _utils_heroAnimation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_utils_heroAnimation__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_animationOnScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/animationOnScroll */ "./assets/scripts/utils/animationOnScroll.js");
+/* harmony import */ var _utils_animationOnScroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_animationOnScroll__WEBPACK_IMPORTED_MODULE_1__);
+
 
 var sliderContainer = document.querySelector('.js-slider-wrapper');
 var leftSlide = document.querySelector('.js-slide-left');
@@ -72,124 +53,78 @@ var changeSlide = function changeSlide(direction) {
 
 /***/ }),
 
-/***/ "./assets/scripts/utils/headerTitle.js":
-/*!*********************************************!*\
-  !*** ./assets/scripts/utils/headerTitle.js ***!
-  \*********************************************/
+/***/ "./assets/scripts/utils/animationOnScroll.js":
+/*!***************************************************!*\
+  !*** ./assets/scripts/utils/animationOnScroll.js ***!
+  \***************************************************/
 /***/ (() => {
 
-var resolver = {
-  resolve: function resolve(options, callback) {
-    // The string to resolve
-    var resolveString = options.resolveString || options.element.getAttribute('data-target-resolver');
-    var combinedOptions = Object.assign({}, options, {
-      resolveString: resolveString
-    });
+var scrollElements = document.querySelectorAll(".js-scroll");
 
-    function getRandomInteger(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    ;
-
-    function randomCharacter(characters) {
-      return characters[getRandomInteger(0, characters.length - 1)];
-    }
-
-    ;
-
-    function doRandomiserEffect(options, callback) {
-      var characters = options.characters;
-      var timeout = options.timeout;
-      var element = options.element;
-      var partialString = options.partialString;
-      var iterations = options.iterations;
-      setTimeout(function () {
-        if (iterations >= 0) {
-          var nextOptions = Object.assign({}, options, {
-            iterations: iterations - 1
-          }); // Ensures partialString without the random character as the final state.
-
-          if (iterations === 0) {
-            element.textContent = partialString;
-          } else {
-            // Replaces the last character of partialString with a random character
-            element.textContent = partialString.substring(0, partialString.length - 1) + randomCharacter(characters);
-          }
-
-          doRandomiserEffect(nextOptions, callback);
-        } else if (typeof callback === "function") {
-          callback();
-        }
-      }, options.timeout);
-    }
-
-    ;
-
-    function doResolverEffect(options, callback) {
-      var resolveString = options.resolveString;
-      var characters = options.characters;
-      var offset = options.offset;
-      var partialString = resolveString.substring(0, offset);
-      var combinedOptions = Object.assign({}, options, {
-        partialString: partialString
-      });
-      doRandomiserEffect(combinedOptions, function () {
-        var nextOptions = Object.assign({}, options, {
-          offset: offset + 1
-        });
-
-        if (offset <= resolveString.length) {
-          doResolverEffect(nextOptions, callback);
-        } else if (typeof callback === "function") {
-          callback();
-        }
-      });
-    }
-
-    ;
-    doResolverEffect(combinedOptions, callback);
-  }
+var elementInView = function elementInView(el) {
+  var dividend = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  var elementTop = el.getBoundingClientRect().top;
+  return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
 };
-/* Some GLaDOS quotes from Portal 2 chapter 9: The Part Where He Kills You
- * Source: http://theportalwiki.com/wiki/GLaDOS_voice_lines#Chapter_9:_The_Part_Where_He_Kills_You
- */
 
-var strings = ['Stay with Ukraine'];
-var counter = 0;
-var options = {
-  // Initial position
-  offset: 0,
-  // Timeout between each random character
-  timeout: 5,
-  // Number of random characters to show
-  iterations: 10,
-  // Random characters to pick from
-  characters: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'x', '#', '%', '&', '-', '+', '_', '?', '/', '\\', '='],
-  // String to resolve
-  resolveString: strings[counter],
-  // The element
-  element: document.querySelector('[data-target-resolver]')
-}; // Callback function when resolve completes
+var elementOutofView = function elementOutofView(el) {
+  var elementTop = el.getBoundingClientRect().top;
+  return elementTop > (window.innerHeight || document.documentElement.clientHeight);
+};
 
-function callback() {
-  setTimeout(function () {
-    counter++;
+var displayScrollElement = function displayScrollElement(element) {
+  element.classList.add("scrolled");
+};
 
-    if (counter > strings.length) {
-      counter = 0;
-    } else if (counter === strings.length) {
-      return;
+var hideScrollElement = function hideScrollElement(element) {
+  element.classList.remove("scrolled");
+};
+
+var handleScrollAnimation = function handleScrollAnimation() {
+  scrollElements.forEach(function (el) {
+    if (elementInView(el, 1.25)) {
+      displayScrollElement(el);
+    } else if (elementOutofView(el)) {
+      hideScrollElement(el);
     }
+  });
+};
 
-    var nextOptions = Object.assign({}, options, {
-      resolveString: strings[counter]
+window.addEventListener("scroll", function () {
+  handleScrollAnimation();
+});
+var headerTitleEls = document.querySelectorAll('.c-hero__title');
+window.addEventListener('scroll', function () {
+  var scrollDistance = window.pageYOffset;
+
+  if (scrollDistance > 60) {
+    headerTitleEls.forEach(function (element) {
+      element.classList.add('top-animation');
     });
-    resolver.resolve(nextOptions, callback);
-  }, 1000);
-}
+  }
+});
 
-resolver.resolve(options, callback);
+/***/ }),
+
+/***/ "./assets/scripts/utils/heroAnimation.js":
+/*!***********************************************!*\
+  !*** ./assets/scripts/utils/heroAnimation.js ***!
+  \***********************************************/
+/***/ (() => {
+
+var headerTitleEls = document.querySelectorAll('.c-hero__title');
+var menuEl = document.querySelector('.c-hero__menu');
+document.addEventListener('DOMContentLoaded', function () {
+  if (headerTitleEls) {
+    headerTitleEls.forEach(function (element) {
+      element.classList.add('is-loaded');
+    });
+  }
+
+  if (menuEl) {
+    menuEl.classList.add('is-loaded');
+  }
+});
 
 /***/ }),
 
