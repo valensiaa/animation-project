@@ -1,31 +1,31 @@
 .l-footer {
-    background-color: $colorSecondary;
+    background-color: $colorWhite;
     color: $colorPrimary;
     font-family: $fontPrimary;
     position: relative;
     padding: 50px 0;
+    z-index: 1;
     
     &__title {
-        color: $colorPrimary;
+        color: $colorSecondary;
         @include h2;
-        text-align: center;
         margin-bottom: 20px;
-        background: linear-gradient(90deg, $colorPrimary, $colorTransparent);
-        background-size: 500%;
-        background-repeat: no-repeat;
-        animation: reveal linear both;
-        animation-timeline: view();
-        animation-range: entry 50% cover 20%;
-        background-clip: text;
-        color: $colorTransparent;
+
+        &.fade {
+            animation: fade linear both, move ease-out both;
+            animation-timeline: view();
+            animation-delay: 0.2s;
+            animation-range: entry 15% cover 20%;
+        }
     }
 
-    @keyframes reveal {
+    @keyframes fade {
         from {
-            background-position-x: 500%;
+            opacity: 0;
         }
+    
         to {
-            background-position-x: 0%;
-        }
+            opacity: 1;
+        }  
     }
 }

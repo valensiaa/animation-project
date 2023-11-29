@@ -21,6 +21,8 @@ var rightSlide = document.querySelector('.js-slide-right');
 var buttonUp = document.querySelector('.js-button-up');
 var buttonDown = document.querySelector('.js-button-down');
 var slidesLength = rightSlide.children.length;
+console.log(slidesLength);
+var slidesImgs = document.querySelectorAll('.l-slider__slide-img');
 var activeSlideIndex = 0;
 leftSlide.style.top = "-".concat((slidesLength - 1) * 100, "vh");
 buttonUp.addEventListener('click', function () {
@@ -32,6 +34,9 @@ buttonDown.addEventListener('click', function () {
 
 var changeSlide = function changeSlide(direction) {
   var sliderHeight = sliderContainer.clientHeight;
+  slidesImgs.forEach(function (element) {
+    element.classList.remove('active');
+  });
 
   if (direction === 'up') {
     activeSlideIndex++;
@@ -39,12 +44,16 @@ var changeSlide = function changeSlide(direction) {
     if (activeSlideIndex > slidesLength - 1) {
       activeSlideIndex = 0;
     }
+
+    slidesImgs[activeSlideIndex].classList.add('active');
   } else if (direction === 'down') {
     activeSlideIndex--;
 
     if (activeSlideIndex < 0) {
       activeSlideIndex = slidesLength - 1;
     }
+
+    slidesImgs[activeSlideIndex].classList.add('active');
   }
 
   rightSlide.style.transform = "translateY(-".concat(activeSlideIndex * sliderHeight, "px)");
