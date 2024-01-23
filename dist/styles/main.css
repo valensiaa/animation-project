@@ -11617,3 +11617,394 @@ html {
 .c-button__two__link:hover::before, .c-button__two__link:hover::after {
   transform: translateX(0);
 }
+
+.c-menu__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+}
+.c-menu__body {
+  display: flex;
+  align-items: center;
+  height: 20%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.c-menu__body--hover-menu {
+  position: relative;
+}
+.c-menu__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+.c-menu__list--column {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.c-menu__list a {
+  color: #101010;
+  font-size: 19px;
+  padding: 10px 15px;
+  line-height: 1.5;
+}
+.c-menu__list.list-1 li a {
+  position: relative;
+}
+.c-menu__list.list-1 li a::before {
+  content: "";
+  position: absolute;
+  background-color: #101010;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scale(0);
+  transform-origin: left;
+  transition: all 0.5s;
+}
+.c-menu__list.list-1 li a:hover::before, .c-menu__list.list-1 li a:hover::after {
+  transform: scale(1);
+}
+.c-menu__list.list-1 li a::after {
+  content: "";
+  position: absolute;
+  background-color: #101010;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scale(0);
+  transform-origin: right;
+  transition: all 0.5s;
+}
+.c-menu__list.list-2 li a {
+  text-transform: capitalize;
+  font-size: 19px;
+  position: relative;
+  transition: all 0.5s;
+}
+.c-menu__list.list-2 li a:hover {
+  color: #ffffff;
+}
+.c-menu__list.list-2 li a:hover span {
+  transform: scaleY(1);
+}
+.c-menu__list.list-2 li a span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  background-color: #101010;
+  transition: all 0.5s;
+  transform-origin: top;
+  transform: scaleY(0);
+  z-index: -1;
+}
+.c-menu__list.list-2 li a span:nth-child(2) {
+  left: 25%;
+  transition-delay: 0.15s;
+}
+.c-menu__list.list-2 li a span:nth-child(3) {
+  left: 50%;
+  transition-delay: 0.3s;
+}
+.c-menu__list.list-2 li a span:nth-child(4) {
+  left: 75%;
+  transition-delay: 0.45s;
+}
+.c-menu__list.list-3 {
+  transition: all 0.5s;
+}
+.c-menu__list.list-3:hover li {
+  transform: scale(0.5);
+  filter: blur(5px);
+}
+.c-menu__list.list-3 li {
+  transform: scale(1);
+  transition: all 0.5s;
+  position: relative;
+}
+.c-menu__list.list-3 li:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: all 0.5s;
+  z-index: -1;
+}
+.c-menu__list.list-3 li:hover {
+  filter: blur(0);
+  transform: scale(1.5);
+}
+.c-menu__list.list-3 li:hover:before {
+  background-color: orangered;
+}
+.c-menu__list.list-3 li a {
+  position: relative;
+  text-transform: uppercase;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.c-menu__list.list-3 li a:hover {
+  color: #ffffff;
+}
+.c-menu__list.list-4 li a {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.c-menu__list.list-4 li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: all 0.5s;
+  transform: scaleY(2);
+  opacity: 0;
+  z-index: -1;
+  border-top: 2px solid #101010;
+  border-bottom: 2px solid #101010;
+}
+.c-menu__list.list-4 li a:hover {
+  color: #ffffff;
+}
+.c-menu__list.list-4 li a:hover::before {
+  transform: scaleY(1.5);
+  opacity: 1;
+}
+.c-menu__list.list-4 li a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #101010;
+  transform: scale(0);
+  z-index: -1;
+  transition: all 0.5s;
+}
+.c-menu__list.list-4 li a:hover::after {
+  transform: scale(1);
+}
+.c-menu__list.list-5 li a {
+  display: block;
+  margin: 0 15px;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #030e3e;
+  position: relative;
+}
+.c-menu__list.list-5 li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-top: 2px solid #030e3e;
+  border-left: 2px solid #030e3e;
+  box-sizing: border-box;
+  transition: all 0.5s;
+  transform-origin: left;
+}
+.c-menu__list.list-5 li a:hover::before {
+  width: 15px;
+  height: 15px;
+  transform: rotate(360deg);
+}
+.c-menu__list.list-5 li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-bottom: 2px solid #030e3e;
+  border-right: 2px solid #030e3e;
+  box-sizing: border-box;
+  transition: all 0.5s;
+  transform-origin: right;
+}
+.c-menu__list.list-5 li a:hover::after {
+  width: 15px;
+  height: 15px;
+  transform: rotate(360deg);
+}
+.c-menu__list.list-6 li a {
+  position: relative;
+  display: block;
+  font-size: 56px;
+  font-weight: 900;
+  padding: 0;
+  -webkit-text-stroke: 2px #030e3e;
+  color: transparent;
+}
+.c-menu__list.list-6 li a::before, .c-menu__list.list-6 li a::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
+}
+.c-menu__list.list-6 li a:hover::before {
+  color: #3b013c;
+  transform: translate(10px, -10px);
+  -webkit-text-stroke: 1px #030e3e;
+  z-index: 1;
+}
+.c-menu__list.list-6 li a:hover::after {
+  color: #d000a0;
+  transform: translate(20px, -20px);
+  -webkit-text-stroke: 1px #030e3e;
+  z-index: 2;
+}
+.c-menu__list.list-7 li {
+  margin-bottom: 10px;
+}
+.c-menu__list.list-7 li a {
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 2px #3b013c;
+  font-size: 56px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.5em;
+}
+.c-menu__list.list-7 li a::before {
+  content: attr(data-text);
+  position: absolute;
+  color: #d000a0;
+  -webkit-text-stroke: 2px #d000a0;
+  border-right: 8px solid #d000a0;
+  width: 0%;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.c-menu__list.list-7 li a:hover::before {
+  width: 100%;
+}
+.c-menu__list.list-8 {
+  margin-bottom: 50px;
+  align-items: center;
+}
+.c-menu__list.list-8 li a {
+  font-weight: bolder;
+  font-size: 4em;
+  transition: all 0.5s;
+  color: #282828;
+}
+.c-menu__list.list-8:hover li a {
+  color: rgba(40, 40, 40, 0.5);
+}
+.c-menu__list.list-8 li a {
+  text-align: center;
+}
+.c-menu__list.list-8 li a::before {
+  content: "";
+  position: absolute;
+  font-size: 2em;
+  letter-spacing: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  transition: letter-spacing 0.5s, opacity 0.5s;
+}
+.c-menu__list.list-8 li a:hover {
+  color: #282828;
+  background-color: white;
+}
+.c-menu__list.list-8 li a:hover::before {
+  content: attr(data-text);
+  letter-spacing: 0;
+  opacity: 1;
+}
+.c-menu__list.list-8:nth-child(1) a::before {
+  color: #94b38a;
+  background-color: #b1e99e;
+}
+.c-menu__list.list-8 li:nth-child(2) a::before {
+  color: #5c9e9e;
+  background-color: #81d5d5;
+}
+.c-menu__list.list-8 li:nth-child(3) a::before {
+  color: #998444;
+  background-color: #e5ce87;
+}
+.c-menu__list.list-8 li:nth-child(4) a::before {
+  color: #ac76b1;
+  background-color: #dea9e3;
+}
+.c-menu__list.list-8 li:nth-child(5) a::before {
+  color: #77b98b;
+  background-color: #99e7b1;
+}
+.c-menu__list.list-9 li {
+  list-style: none;
+  font-size: 88px;
+  font-weight: 900;
+  color: #3b013c;
+  letter-spacing: 10px;
+  opacity: 1;
+  transition: all 0.7s;
+}
+.c-menu__list.list-9 li:nth-child(1) {
+  transition-delay: 0.5s;
+}
+.c-menu__list.list-9 li:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.c-menu__list.list-9 li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.c-menu__list.list-9 li:nth-child(4) {
+  transition-delay: 0.2s;
+}
+.c-menu__list.list-9 li:nth-child(5) {
+  transition-delay: 0.1s;
+}
+.c-menu__list.list-9:hover li {
+  transform: rotate(45deg) translateY(-150px);
+  filter: blur(10px);
+  opacity: 0;
+}
+.c-menu__list.list-9:hover li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.c-menu__list.list-9:hover li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.c-menu__list.list-9:hover li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.c-menu__list.list-9:hover li:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.c-menu__list.list-9:hover li:nth-child(5) {
+  transition-delay: 0.5s;
+}
