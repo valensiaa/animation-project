@@ -12128,3 +12128,113 @@ html {
   background-image: url(../images/image-4.jpeg?e33e22de3652d91c2ece3b09b69d44bf);
   background-size: cover;
 }
+
+.c-examples__wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.c-examples__wrapper.floating {
+  background-color: rgb(0, 200, 94);
+}
+.c-examples__wrapper.loading {
+  background-color: rgb(200, 133, 0);
+}
+.c-examples__wrapper.driving {
+  overflow: hidden;
+}
+.c-examples__wrapper.shaking {
+  background-color: rgb(35, 35, 36);
+}
+.c-examples__wrapper h1, .c-examples__wrapper .h1 {
+  font-size: 90px;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  font-weight: 900;
+  letter-spacing: 10px;
+  animation: float 1s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes float {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+.c-examples__loading {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  animation: loading 2s linear infinite;
+}
+@keyframes loading {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(180deg);
+  }
+  100% {
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+}
+.c-examples__driving {
+  width: 100%;
+  height: 100%;
+  background: url(../images/bg.jpg?c2bd446e2c015c2e88d013298fc89971) no-repeat;
+  background-size: cover;
+  animation: driving 10s linear infinite;
+}
+@keyframes driving {
+  0% {
+    background-position: bottom left;
+  }
+  100% {
+    background-position: bottom right;
+  }
+}
+.c-examples__driving-car {
+  width: 350px;
+  position: relative;
+  top: 68%;
+  left: 10%;
+}
+.c-examples__driving-motobike {
+  width: 200px;
+  position: relative;
+  top: 68%;
+  left: 25%;
+}
+.c-examples__shaking a {
+  padding: 20px 40px;
+  display: block;
+  text-transform: capitalize;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 40px;
+  transition: all 0.3s ease-in-out;
+}
+.c-examples__shaking a:hover {
+  color: #9c1b1b;
+  border: 1px solid #9c1b1b;
+  animation: shaking 0.3s linear 1;
+}
+@keyframes shaking {
+  33% {
+    transform: rotate(-10deg);
+  }
+  66% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
