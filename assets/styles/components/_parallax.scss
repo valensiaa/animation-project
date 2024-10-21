@@ -1,0 +1,95 @@
+.c-parallax {
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px;
+        position: absolute;
+        width: 100vw;
+        z-index: 3;
+        gap: 20px;
+    }
+
+    &__logo {
+        font-size: 32px;
+        font-weight: bold;
+        margin-right: 20px;
+        color: #007a66;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex: 1;
+
+        & li > a {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            color: #007a66;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: #007a66;
+                color: #ffffff;
+            }
+        }
+    }
+
+    &__hero {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        & h1 {
+            position: absolute;
+            font-size: 56px;
+            font-weight: bold;
+            color: #ffffff;
+            z-index: 2;
+            padding: 20px;
+        }
+    }
+
+    &__bg {
+        display: flex;
+        align-items: center;
+    }
+    
+    &__content {
+        background-color: #013329;
+        color: #ffffff;
+        padding: 100px;
+
+        & h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        & p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    }
+
+}

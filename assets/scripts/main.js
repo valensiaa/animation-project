@@ -1,5 +1,6 @@
 import "./utils/heroAnimation";
 import "./utils/animationOnScroll";
+import "./utils/parallax";
 
 
 const sliderContainer = document.querySelector('.js-slider-wrapper');
@@ -8,7 +9,6 @@ const rightSlide = document.querySelector('.js-slide-right');
 const buttonUp = document.querySelector('.js-button-up');
 const buttonDown = document.querySelector('.js-button-down');
 const slidesLength = rightSlide.children.length;
-console.log(slidesLength)
 const slidesImgs = document.querySelectorAll('.l-slider__slide-img');
 
 let activeSlideIndex = 0;

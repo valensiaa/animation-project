@@ -13,6 +13,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_heroAnimation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_utils_heroAnimation__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_animationOnScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/animationOnScroll */ "./assets/scripts/utils/animationOnScroll.js");
 /* harmony import */ var _utils_animationOnScroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_animationOnScroll__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_parallax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/parallax */ "./assets/scripts/utils/parallax.js");
+/* harmony import */ var _utils_parallax__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_utils_parallax__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 var sliderContainer = document.querySelector('.js-slider-wrapper');
@@ -21,7 +24,6 @@ var rightSlide = document.querySelector('.js-slide-right');
 var buttonUp = document.querySelector('.js-button-up');
 var buttonDown = document.querySelector('.js-button-down');
 var slidesLength = rightSlide.children.length;
-console.log(slidesLength);
 var slidesImgs = document.querySelectorAll('.l-slider__slide-img');
 var activeSlideIndex = 0;
 leftSlide.style.top = "-".concat((slidesLength - 1) * 100, "vh");
@@ -133,6 +135,29 @@ document.addEventListener('DOMContentLoaded', function () {
   if (menuEl) {
     menuEl.classList.add('is-loaded');
   }
+});
+
+/***/ }),
+
+/***/ "./assets/scripts/utils/parallax.js":
+/*!******************************************!*\
+  !*** ./assets/scripts/utils/parallax.js ***!
+  \******************************************/
+/***/ (() => {
+
+var heading = document.getElementById('heading');
+var hill1 = document.getElementById('hill1');
+var hill2 = document.getElementById('hill4');
+var hill3 = document.getElementById('hill5');
+var leaf = document.getElementById('leaf');
+window.addEventListener('scroll', function () {
+  var value = window.scrollY;
+  heading.style.marginTop = value * 2.5 + 'px';
+  hill1.style.top = value * 1.5 + 'px';
+  hill2.style.left = value * -1.5 + 'px';
+  hill3.style.top = value * 1.0 + 'px';
+  leaf.style.top = value * -1.5 + 'px';
+  leaf.style.left = value * 1.5 + 'px';
 });
 
 /***/ }),
