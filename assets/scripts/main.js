@@ -8,15 +8,23 @@ const leftSlide = document.querySelector('.js-slide-left');
 const rightSlide = document.querySelector('.js-slide-right');
 const buttonUp = document.querySelector('.js-button-up');
 const buttonDown = document.querySelector('.js-button-down');
-const slidesLength = rightSlide.children.length;
+let slidesLength;
+if(rightSlide){
+ slidesLength = rightSlide.children.length;
+}
 const slidesImgs = document.querySelectorAll('.l-slider__slide-img');
 
 let activeSlideIndex = 0;
+if(rightSlide){
+    leftSlide.style.top = `-${activeSlideIndex * 100}vh`;
+}
 
-leftSlide.style.top = `-${(slidesLength - 1) * 100}vh`;
-
-buttonUp.addEventListener('click', () => changeSlide('up'))
-buttonDown.addEventListener('click', () => changeSlide('down'))
+if(buttonUp) {
+    buttonUp.addEventListener('click', () => changeSlide('up'))
+}
+if(buttonDown) {
+    buttonDown.addEventListener('click', () => changeSlide('down'))
+}
 
 const changeSlide = (direction) => {
 
@@ -48,4 +56,25 @@ const changeSlide = (direction) => {
     }
     rightSlide.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
     leftSlide.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
+}
+
+
+// scroll circles
+const circle1 = document.querySelector('.c-scroll__circle-1');
+const circle2 = document.querySelector('.c-scroll__circle-2');
+
+if(circle1 && circle2) {
+    window.addEventListener('scroll', () => {
+        const scrollValue = window.scrollY;
+        circle1.style.clipPath = `circle(${150 + scrollValue * 0.75}px at 0 0)`;
+        circle2.style.clipPath = `circle(${150 + scrollValue * 0.75}px at 100% 100%)`;
+ });
+}
+
+// bg on scroll 
+const pattern = document.querySelector('.bg');
+if(pattern){
+    window.addEventListener('scroll', () => {
+        pattern.style.backgroundPosition = window.scrollY + 'px';
+    });
 }

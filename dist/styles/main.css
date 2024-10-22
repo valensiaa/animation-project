@@ -12028,8 +12028,7 @@ html {
   left: 0;
   z-index: -2;
   background-color: #ffbf00;
-  -webkit-clip-path: circle(250px at center);
-          clip-path: circle(250px at center);
+  clip-path: circle(250px at center);
 }
 .c-cards__container {
   position: relative;
@@ -13565,14 +13564,12 @@ html {
 }
 .c-examples__loader-4 span.top {
   color: #e4485a;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
-          clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
   animation: split 2s linear infinite;
 }
 .c-examples__loader-4 span.bottom {
   color: #38406a;
-  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
-          clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+  clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
   animation: split 2s linear infinite reverse;
 }
 @keyframes split {
@@ -13604,19 +13601,16 @@ html {
 }
 .c-examples__black-white h1:nth-child(2), .c-examples__black-white .h1:nth-child(2) {
   color: #ffffff;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0% 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 0, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0% 100%);
   background-color: #dde7e8;
   letter-spacing: 3.2px;
   transition: all 0.5s;
 }
 .c-examples__black-white h1:nth-child(2):hover, .c-examples__black-white .h1:nth-child(2):hover {
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 .c-examples__black-white h1:nth-child(1):hover ~ h1, .c-examples__black-white .h1:nth-child(1):hover ~ h1, .c-examples__black-white h1:nth-child(1):hover ~ .h1, .c-examples__black-white .h1:nth-child(1):hover ~ .h1 {
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 .c-examples__split-menu {
   display: flex;
@@ -13652,8 +13646,7 @@ html {
   height: 100%;
   padding: 10px 20px;
   color: #000;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
-          clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
   transition: all 0.5s;
   transition-delay: 0.25s;
 }
@@ -13667,8 +13660,7 @@ html {
   padding: 10px 20px;
   color: #000;
   transition: all 0.5s;
-  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
-          clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+  clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
   transition-delay: 0.25s;
 }
 .c-examples__split-menu li a:hover::before {
@@ -13708,6 +13700,9 @@ html {
   font-size: 32px;
   font-weight: bold;
   margin-right: 20px;
+  color: #007a66;
+}
+.c-parallax__logo:hover {
   color: #007a66;
 }
 .c-parallax__nav {
@@ -13773,5 +13768,69 @@ html {
 }
 .c-parallax__content p {
   font-size: 16px;
+  line-height: 1.5;
+}
+
+.c-scroll {
+  min-height: 200vh;
+}
+.c-scroll__wrapper-1 {
+  background-color: rgb(33, 33, 34);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.c-scroll h1, .c-scroll .h1 {
+  font-size: 18em;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 900;
+}
+.c-scroll__circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.c-scroll__circle-1 {
+  background-color: rgb(255, 87, 196);
+  clip-path: circle(150px at 0 0);
+}
+.c-scroll__circle-2 {
+  background-color: rgb(255, 166, 32);
+  clip-path: circle(150px at 100% 100%);
+}
+.c-scroll__circle h1, .c-scroll__circle .h1 {
+  color: transparent;
+  -webkit-text-stroke: 5px rgb(33, 33, 34);
+}
+.c-scroll__wrapper-2 .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/bg-on-scroll.png?8481fccbd562f2d3594e1ff6a4d48258);
+  background-size: 700px;
+  background-repeat: repeat;
+}
+.c-scroll__wrapper-2 .content {
+  position: relative;
+  background-color: white;
+  width: 1000px;
+  height: 100%;
+  margin: 150px auto;
+  padding: 50px 70px;
+}
+.c-scroll__wrapper-2 .content h2, .c-scroll__wrapper-2 .content .h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.c-scroll__wrapper-2 .content p {
+  font-size: 20px;
   line-height: 1.5;
 }
